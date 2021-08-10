@@ -1,0 +1,58 @@
+
+Step 1
+✅    - wireframe
+✅    - UI
+✅    - generate repo files, link and upload to GitHub
+✅    - test both can work the same file/repo   
+✅    - create db + state and test the server
+    - split tasks
+
+    !! -> PSEUDOcode
+
+Step 2
+    1. build the HTML layout 
+      1.1 need <main> for our main container section
+      which is going to display the base layout
+        -> header for the logo and name
+        -> add a <form> with submit button for searching
+        for the expenses by name
+        -> add a <section> for the <ul> elements that
+        are going to contain each individual
+        expense displayed within a <li> 
+            * need a total <div> to give us the 
+            total of the expense item Price
+        -> need a item counter(<div> what is going to
+        display the current quant of items in the <ul>)
+        -> form for adding a new expense item, going by:
+            * name of the expense item
+            * category of the expense item
+            * price of the expense item
+        -> submit <button> to add to the database
+
+    1.2 need a <aside> for our filters section
+    which is gonna allow the user to filter accordingly
+        -> 1st filter type:
+            * (method: select) by category = from the dropdown user can
+                chose from the available cathegories in the database  
+        -> 2st filter type:
+            * (method: to be looked for) price range  = user can optionally
+                insert their price range and get the results accordingy
+        -> 2st^ filter type alternative -> if 2nd too hard we can then get the
+                user predefined price ranges or less/ more than a certain set
+                amount(ex: > £50  or < £200)
+        ->3rd filter type:    
+            * alphabetically = to be ordered by expense item name
+    
+    2. style with the CSS
+    -> 
+
+Step 3
+    3.1 have data added to our databse and populate it
+    3.2 - building the functions to render the user imput of new
+        expense item onto the list of expenses
+    3.2 
+
+Step 4
+
+
+Step 5

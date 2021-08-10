@@ -1,0 +1,4 @@
+{
+    "/expenses": "/expenses?_expand=user",
+    "/expenses/*": "/expenses/$1?_expand=user"
+  }

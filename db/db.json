@@ -1,0 +1,35 @@
+  {
+    "users": [
+      {
+        "id": 1,
+        "firstName": "Steven",
+        "lastName": "Rico"
+      }
+    ],
+    "expenses": [
+      {
+        "id": 1,
+        "item": "Ibuprofen",
+        "category": "shopping",
+        "price": 5.25,
+        "userId": 1,
+        "mandatory": false
+      },
+      {
+        "id": 2,
+        "item": "oil filter change",
+        "category": "service cost",
+        "price": 5.25,
+        "userId": 1,
+        "mandatory": false
+      },
+      {
+        "id": 3,
+        "item": "toilet paper",
+        "category": "sanitary",
+        "price": 3,
+        "userId": 1,
+        "mandatory": false
+      }
+    ]
+  }
