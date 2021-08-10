@@ -114,20 +114,44 @@ function renderMainContainer() {
 renderMainContainer()
 
 
+
+// do not look at the inside of the below
+// just the main container
+
 const filtersSectionAsideEl = document.querySelector(".filters-section");
 
 function renderFilteredResults () { 
 
-    const formFilteringEl = document.createElement ("form");
-    const dropdownLabelEl = document.createElement("select");
+    const filtersDivEl = document.createElement("div");
+    filtersDivEl.className = "div-forms-container";
+    filtersSectionAsideEl.append(filtersDivEl);
 
+    const formFilteringEl = document.createElement ("form");
+
+    const dropdownLabelEl = document.createElement("select");
+    dropdownLabelEl.innerText = "Category of expenses"
+    
+    
     const dropdownselectEl = document.createElement("select");
     dropdownselectEl.name = "filter-by-category";
     dropdownselectEl.id = "filter-by-category";
+    formFilteringEl.append(dropdownLabelEl, dropdownselectEl);
 
+    const dropdowndefaultOptionEl = document.createElement("option");
     const dropdownOptionEl = document.createElement("option");
+    dropdowndefaultOptionEl.value = ""; // to be replaced with the category 
+    dropdowndefaultOptionEl.innerText = "Select from the below";
     dropdownOptionEl.value = "category"; // to be replaced with the category 
+    dropdownOptionEl.innerText = "name of category 1"; // name of the category 
+
+    dropdownselectEl.append(dropdowndefaultOptionEl,dropdownOptionEl);
+
+    filtersDivEl.append(formFilteringEl);
+
+    filtersSectionAsideEl.append(filtersDivEl);
+
 
 
 }
 
+renderFilteredResults ()
