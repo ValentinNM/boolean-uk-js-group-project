@@ -32,16 +32,88 @@
       "mandatory": false
     },
     {
-      "item": "Chair",
-      "category": " Furniture",
-      "price": 20,
+      "item": "onion",
+      "category": "food",
+      "price": 22,
       "id": 4
     },
     {
-      "item": "Chair",
-      "category": " Furniture",
-      "price": 20,
+      "item": "Juice",
+      "category": "Beverages",
+      "price": 2.49,
       "id": 5
+    },
+    {
+      "item": "carrot",
+      "category": "groceries",
+      "price": 22,
+      "id": 6
+    },
+    {
+      "item": "oil change",
+      "category": "car maintanance",
+      "price": 60,
+      "id": 7
+    },
+    {
+      "item": "dinner",
+      "category": "family",
+      "price": 268,
+      "id": 8
+    },
+    {
+      "item": "oatmeal",
+      "category": "food",
+      "price": 12,
+      "id": 9
+    },
+    {
+      "item": "test ",
+      "category": "test",
+      "price": 1,
+      "id": 10
+    },
+    {
+      "item": "test 2",
+      "category": "test 2",
+      "price": 123,
+      "id": 11
+    },
+    {
+      "item": "test 3",
+      "category": "test 3",
+      "price": 123,
+      "id": 12
+    },
+    {
+      "item": "test4",
+      "category": " test 4",
+      "price": 12,
+      "id": 13
+    },
+    {
+      "item": "a",
+      "category": " a",
+      "price": 1,
+      "id": 14
+    },
+    {
+      "item": "b",
+      "category": " b",
+      "price": 2,
+      "id": 15
+    },
+    {
+      "item": "wqe",
+      "category": " eqwe",
+      "price": 123,
+      "id": 16
+    },
+    {
+      "item": "dsfds",
+      "category": " sdfds",
+      "price": 424,
+      "id": 17
     }
   ]
 }
