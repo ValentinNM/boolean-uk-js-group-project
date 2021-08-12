@@ -38,6 +38,20 @@ topSearchBarFormEl.append(searchButtonEl);
 // mainEl.append(topSearchBarFormEl)
 centeringSectionEl.append(topSearchBarFormEl);
 
+function renderMainContainer() { 
+
+    const topSearchBarFormEl = document.createElement("form");
+    
+
+    // const searchFieldLabelEl = document.createElement("label");
+    const searchFieldInputEl = document.createElement("input");
+    searchFieldInputEl.placeholder = "Please enter the item name: ";
+    searchFieldInputEl.innerText = "working";
+    searchFieldInputEl.id = "user-item-input";
+    searchFieldInputEl.name = "user-item-input";
+    searchFieldInputEl.type = "text";
+    searchFieldInputEl.className = "search-area";
+    topSearchBarFormEl.append(searchFieldInputEl);
 // blue
 
 const h3UlEl = document.createElement("h3");
@@ -52,7 +66,7 @@ mainEl.append(sectionListEl);
 const expensesListUlEl = document.createElement("ul");
 expensesListUlEl.className = "expenses-list";
 sectionListEl.append(expensesListUlEl);  
-
+}
 // provisionary - > to be removed and created through
 // the function that will render the list of items on the browser
 
@@ -60,6 +74,48 @@ function displayUserNewAddition () {
 
     // ul as brige
 
+    // blue
+
+    const h3UlEl = document.createElement("h3");
+    h3UlEl.innerText = "List of expenses"; 
+    mainEl.append(h3UlEl);
+
+    const sectionListEl = document.createElement ("section");
+    sectionListEl.className = "list-section"
+    mainEl.append(sectionListEl);
+
+    const expensesListUlEl = document.createElement("ul");
+    expensesListUlEl.className = "expenses-list";
+    sectionListEl.append(expensesListUlEl);  
+    
+    // provisionary - > to be removed and created through
+    // the function that will render the list of items on the browser
+    const expenseItemLiEl = document.createElement("li");
+    expenseItemLiEl.className = "expense-item";
+    expenseItemLiEl.innerText = " working too"; 
+    expensesListUlEl.append(expenseItemLiEl);
+
+    const expenseSecondItemLiEl = document.createElement("li");
+    expenseSecondItemLiEl.className = "expense-item";
+    expenseSecondItemLiEl.innerText = " working too"; 
+    expensesListUlEl.append(expenseSecondItemLiEl);
+
+    const expenseThirdItemLiEl = document.createElement("li");
+    expenseThirdItemLiEl.className = "expense-item";
+    expenseThirdItemLiEl.innerText = " working too"; 
+    expensesListUlEl.append(expenseThirdItemLiEl);
+
+    const frameEl = document.createElement("div")
+    frameEl.className = "frame-list"
+    sectionListEl.append(frameEl)
+
+    const headingEl = document.createElement("h2")
+    headingEl.innerText = "Hi"
+    frameEl.append(headingEl)    
+    
+    const formDesciptionH3El = document.createElement("h3");
+    formDesciptionH3El.innerText = "Add your new expenses below:";
+    mainEl.append(formDesciptionH3El);
     fetch("http://localhost:3000/expenses")
     .then((res) => res.json())
     .then((allExpenses) => {
@@ -87,7 +143,37 @@ expenseThirdItemLiEl.className = "expense-item";
 expenseThirdItemLiEl.innerText = " working too"; 
 expensesListUlEl.append(expenseThirdItemLiEl);
 
+    const addNewFormContainerEl = document.createElement("section");
+    addNewFormContainerEl.className = "add-new-item-container";
 
+    const addNewExpenseFormEl = document.createElement("form");
+    addNewExpenseFormEl.className = "expense-form"
+    // const testH2El = document.createElement("div");
+    // testH2El.innerHTML = `
+    // <p>working as well </p>
+    
+    // `;
+    // addNewExpenseFormEl.append(testH2El);   
+
+    const addItemInputEl = document.createElement("input");
+    addItemInputEl.className = "input"
+    addItemInputEl.type = "text"; 
+    addItemInputEl.name = ""; // same as belwo
+    addItemInputEl.value = ""; // what we get from the user and store  
+    
+    const addCategoryInputEl = document.createElement ("input");
+    addCategoryInputEl.className = "input"
+    addCategoryInputEl.type = "text";
+    addCategoryInputEl.name = " "; // name ov our var we are going to take from the object KEY
+    addCategoryInputEl.value = " "; // sw store this
+
+    const addPriceInputEl = document.createElement("input");
+    addPriceInputEl.className = "input"
+    addPriceInputEl.type = "text";
+    addPriceInputEl.name = " " // our price Key name
+    addPriceInputEl.value = " "// this is the number we want to store
+
+    addNewExpenseFormEl.append(addItemInputEl,addCategoryInputEl,addPriceInputEl);
 // * ths is the counter section START
 const totalSectionEl = document.createElement("div")
 totalSectionEl.className = "frame-list"
@@ -256,8 +342,9 @@ renderMainContainer()
 
 const filtersSectionAsideEl = document.querySelector(".filters-section");
 
-function renderFilteredResults () { 
 
+function renderFilteredResults () { 
+    
     const filtersDivEl = document.createElement("div");
     filtersDivEl.className = "div-forms-container";
     filtersSectionAsideEl.append(filtersDivEl);
