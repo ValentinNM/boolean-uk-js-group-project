@@ -1,4 +1,4 @@
-console.log("working");
+console.log("working line 1");
 
 
 let state = {
@@ -11,173 +11,93 @@ const mainEl = document.querySelector(".container");
 
 function renderMainContainer () {
 
+    // START of the search by name section
 const centeringSectionEl = document.createElement("section");
 centeringSectionEl.className = "centering-section";
 mainEl.append(centeringSectionEl);
 
 const topSearchBarFormEl = document.createElement("form");
+topSearchBarFormEl.id = "filter-by-name";
     
-
-// const searchFieldLabelEl = document.createElement("label");
 const searchFieldInputEl = document.createElement("input");
-searchFieldInputEl.placeholder = "Please enter the item name: ";
-searchFieldInputEl.innerText = "working";
+searchFieldInputEl.className = "search-area";
+searchFieldInputEl.placeholder = "Please search by the item name: ";
 searchFieldInputEl.id = "user-item-input";
 searchFieldInputEl.name = "user-item-input";
 searchFieldInputEl.type = "text";
-searchFieldInputEl.className = "search-area";
+// searchFieldInputEl.value = " ";
 topSearchBarFormEl.append(searchFieldInputEl);
-
 
 const searchButtonEl = document.createElement("button");
 searchButtonEl.className = "search-button";
-searchButtonEl.innerText = "Look up";
+searchButtonEl.innerText = "Quick look up";
 topSearchBarFormEl.append(searchButtonEl);
 
-
-// mainEl.append(topSearchBarFormEl)
 centeringSectionEl.append(topSearchBarFormEl);
+// END of the search by name section
 
-function renderMainContainer() { 
 
-    const topSearchBarFormEl = document.createElement("form");
-    
-
-    // const searchFieldLabelEl = document.createElement("label");
-    const searchFieldInputEl = document.createElement("input");
-    searchFieldInputEl.placeholder = "Please enter the item name: ";
-    searchFieldInputEl.innerText = "working";
-    searchFieldInputEl.id = "user-item-input";
-    searchFieldInputEl.name = "user-item-input";
-    searchFieldInputEl.type = "text";
-    searchFieldInputEl.className = "search-area";
-    topSearchBarFormEl.append(searchFieldInputEl);
-// blue
-
+// Start - Text only
 const h3UlEl = document.createElement("h3");
 h3UlEl.innerText = "List of expenses"; 
-// mainEl.append(h3UlEl);
 centeringSectionEl.append(h3UlEl);
+// END - text only
 
+
+// START of the LIST Section 
 const sectionListEl = document.createElement ("section");
 sectionListEl.className = "list-section"
 mainEl.append(sectionListEl);
 
+function userAddNewExpense () { 
+// console.log(" inside userAddNewExpense: ", userAddNewExpense)
+    
 const expensesListUlEl = document.createElement("ul");
 expensesListUlEl.className = "expenses-list";
-sectionListEl.append(expensesListUlEl);  
-}
-// provisionary - > to be removed and created through
-// the function that will render the list of items on the browser
-
-function displayUserNewAddition () { 
-
-    // ul as brige
-
-    // blue
-
-    const h3UlEl = document.createElement("h3");
-    h3UlEl.innerText = "List of expenses"; 
-    mainEl.append(h3UlEl);
-
-    const sectionListEl = document.createElement ("section");
-    sectionListEl.className = "list-section"
-    mainEl.append(sectionListEl);
-
-    const expensesListUlEl = document.createElement("ul");
-    expensesListUlEl.className = "expenses-list";
-    sectionListEl.append(expensesListUlEl);  
+sectionListEl.append(expensesListUlEl); 
     
-    // provisionary - > to be removed and created through
-    // the function that will render the list of items on the browser
-    const expenseItemLiEl = document.createElement("li");
-    expenseItemLiEl.className = "expense-item";
-    expenseItemLiEl.innerText = " working too"; 
-    expensesListUlEl.append(expenseItemLiEl);
-
-    const expenseSecondItemLiEl = document.createElement("li");
-    expenseSecondItemLiEl.className = "expense-item";
-    expenseSecondItemLiEl.innerText = " working too"; 
-    expensesListUlEl.append(expenseSecondItemLiEl);
-
-    const expenseThirdItemLiEl = document.createElement("li");
-    expenseThirdItemLiEl.className = "expense-item";
-    expenseThirdItemLiEl.innerText = " working too"; 
-    expensesListUlEl.append(expenseThirdItemLiEl);
-
-    const frameEl = document.createElement("div")
-    frameEl.className = "frame-list"
-    sectionListEl.append(frameEl)
-
-    const headingEl = document.createElement("h2")
-    headingEl.innerText = "Hi"
-    frameEl.append(headingEl)    
-    
-    const formDesciptionH3El = document.createElement("h3");
-    formDesciptionH3El.innerText = "Add your new expenses below:";
-    mainEl.append(formDesciptionH3El);
     fetch("http://localhost:3000/expenses")
     .then((res) => res.json())
     .then((allExpenses) => {
-        console.log("all expenses: ", allExpenses);
-    })
+        console.log("inside all expenses data: ", allExpenses);        
+        // console.log("this has to display last after the post methos")
+         
+        state.expense = allExpenses; 
 
+        for (let i = 0; i < allExpenses.length; i++) {
+            const userExpense = allExpenses[i];
+            // console.log("UserExpenses element: ",userExpense.item);
 
+            const addedItemNameLiEl = document.createElement("li");
+            addedItemNameLiEl.className = "expense-item";
+            addedItemNameLiEl.innerText = userExpense.item;
+
+            const addedItemCategoryLiEl = document.createElement("li");
+            addedItemCategoryLiEl.className = "expense-category";
+            addedItemCategoryLiEl.innerText = userExpense.category;
+
+            const addedItemPriceLiEl = document.createElement("li");
+            addedItemPriceLiEl.className = "expense-price";
+            addedItemPriceLiEl.innerText = userExpense.price;
+
+            expensesListUlEl.append (
+                addedItemNameLiEl,
+                addedItemCategoryLiEl,
+                addedItemPriceLiEl );
+        }
+        return expensesListUlEl;
+
+    });
+    // sectionListEl.append(expensesListUlEl);   
 }
-displayUserNewAddition()
+userAddNewExpense ()
 
-// displayUserNewAddition()
+const addNewFormContainerEl = document.createElement("section");
+addNewFormContainerEl.className = "add-new-item-container";
 
-const expenseItemLiEl = document.createElement("li");
-expenseItemLiEl.className = "expense-item";
-expenseItemLiEl.innerText = " working too"; 
-expensesListUlEl.append(expenseItemLiEl);
-
-const expenseSecondItemLiEl = document.createElement("li");
-expenseSecondItemLiEl.className = "expense-item";
-expenseSecondItemLiEl.innerText = " working too"; 
-expensesListUlEl.append(expenseSecondItemLiEl);
-
-const expenseThirdItemLiEl = document.createElement("li");
-expenseThirdItemLiEl.className = "expense-item";
-expenseThirdItemLiEl.innerText = " working too"; 
-expensesListUlEl.append(expenseThirdItemLiEl);
-
-    const addNewFormContainerEl = document.createElement("section");
-    addNewFormContainerEl.className = "add-new-item-container";
-
-    const addNewExpenseFormEl = document.createElement("form");
-    addNewExpenseFormEl.className = "expense-form"
-    // const testH2El = document.createElement("div");
-    // testH2El.innerHTML = `
-    // <p>working as well </p>
-    
-    // `;
-    // addNewExpenseFormEl.append(testH2El);   
-
-    const addItemInputEl = document.createElement("input");
-    addItemInputEl.className = "input"
-    addItemInputEl.type = "text"; 
-    addItemInputEl.name = ""; // same as belwo
-    addItemInputEl.value = ""; // what we get from the user and store  
-    
-    const addCategoryInputEl = document.createElement ("input");
-    addCategoryInputEl.className = "input"
-    addCategoryInputEl.type = "text";
-    addCategoryInputEl.name = " "; // name ov our var we are going to take from the object KEY
-    addCategoryInputEl.value = " "; // sw store this
-
-    const addPriceInputEl = document.createElement("input");
-    addPriceInputEl.className = "input"
-    addPriceInputEl.type = "text";
-    addPriceInputEl.name = " " // our price Key name
-    addPriceInputEl.value = " "// this is the number we want to store
-
-    addNewExpenseFormEl.append(addItemInputEl,addCategoryInputEl,addPriceInputEl);
-// * ths is the counter section START
+    // * START of the counter section 
 const totalSectionEl = document.createElement("div")
 totalSectionEl.className = "frame-list"
-totalSectionEl.style = "text-align: center;"
 
 sectionListEl.append(totalSectionEl)
 centeringSectionEl.append(sectionListEl);
@@ -186,6 +106,7 @@ const totalPriceDivEl = document.createElement("div")
 totalPriceDivEl.innerText = "Total";
 const totalPriceDisplayed = document.createElement("h3");
 totalPriceDisplayed.innerText = "£267.22";
+
 totalPriceDivEl.append(totalPriceDisplayed);
 totalSectionEl.append(totalPriceDivEl)  
 
@@ -197,36 +118,30 @@ totalNoCounterDigitEl.innerText = "122";
 totalNoCounterEl.append(totalNoCounterDigitEl);
 
 totalSectionEl.append(totalNoCounterEl)
-
-// centeringSectionEl.append(h3UlEl);
-
-// counter section END
+// END counter section 
 
 
-
+// START of the text only
 const formDesciptionH3El = document.createElement("h3");
-formDesciptionH3El.innerText = "Add your new expenses below:";
+formDesciptionH3El.innerText = "Add your new expense below:";
+// END of the text only
 
 
-
-const addNewFormContainerEl = document.createElement("section");
-addNewFormContainerEl.className = "add-new-item-container";
-
+// START of the ADD NEW ITEM from 
 const addNewExpenseFormEl = document.createElement("form");
 addNewExpenseFormEl.className = "expense-form"
 addNewExpenseFormEl.id = "add-new-item";
 addNewExpenseFormEl.autocomplete = "off";
 
-
 addNewExpenseFormEl.addEventListener("submit", (event) => {
     event.preventDefault()
-    console.log("button");
+    // console.log("Add me! button");
 
     const addedItem = addItemInputEl.value; 
     const addedCategory = addCategoryInputEl.value;
     const addedPrice = parseInt(addPriceInputEl.value);
 
-    console.log("new user added expense :", addedItem, addedCategory, addedPrice);
+    // console.log("new user added expense :", addedItem, addedCategory, addedPrice);
 
 
     const productToCreate = {
@@ -246,10 +161,7 @@ addNewExpenseFormEl.addEventListener("submit", (event) => {
     fetch("http://localhost:3000/expenses", fetchOptions)
         .then((res) => res.json())
         .then((newProduct) => {
-    console.log("Inside POST Fetch: ", newProduct);
-    
-    // function renderUser
-
+    // console.log("new product Inside POST Fetch: ", newProduct);
 
 addNewExpenseFormEl.reset()
 });
@@ -257,6 +169,9 @@ addNewExpenseFormEl.reset()
 })
 
 
+// { add name
+const newItemDivEL = document.createElement("div");
+newItemDivEL.innerHTML = "<h3>Name</h3>";
 
 const addItemInputEl = document.createElement("input");
 addItemInputEl.className = "input"
@@ -264,33 +179,28 @@ addItemInputEl.type = "text";
 addItemInputEl.name = ""; // same as belwo
 addItemInputEl.value = ""; // what we get from the user and store in a variable
 
-// const addItemLabelEl = document.createElement("label");
-// addItemLabelEl.for = "item";// 
-// addItemLabelEl.innerText = "Name";
-
-const newItemDivEL = document.createElement("div");
-newItemDivEL.innerHTML = "<h3>Name</h3>";
-
 newItemDivEL.className = "sectioned-label";
 newItemDivEL.append( addItemInputEl);
+// add name }
 
+// { add category
+const newCategoryDivEl = document.createElement("div");
+newCategoryDivEl.innerHTML = "<h3>Category</h3>";
 
 const addCategoryInputEl = document.createElement ("input");
 addCategoryInputEl.className = "input"
 addCategoryInputEl.type = "text";
 addCategoryInputEl.name = " "; // name ov our var we are going to take from the object KEY
 addCategoryInputEl.value = " "; // sw store this
-
-// const addCategoryLabelEl = document.createElement("label");
-// addCategoryLabelEl.for = "category";
-// addCategoryLabelEl.innerText = "Category";
-const newCategoryDivEl = document.createElement("div");
-newCategoryDivEl.innerHTML = "<h3>Category</h3>";
-
 newCategoryDivEl.className = "sectioned-label";
 
 newCategoryDivEl.append(addCategoryInputEl)
+// add category }
 
+// { add price 
+const newPriceDivEl = document.createElement("div");
+newPriceDivEl.className = "sectioned-label";
+newPriceDivEl.innerHTML = "<h3>Price</h3>";
 
 const addPriceInputEl = document.createElement("input");
 addPriceInputEl.className = "input"
@@ -298,15 +208,8 @@ addPriceInputEl.type = "text";
 addPriceInputEl.name = " " // our price Key name
 addPriceInputEl.value = " "// this is the number we want to store
 
-// const addPriceLabelEl = document.createElement("label");
-// addPriceLabelEl.for = "price";
-// addPriceLabelEl.innerText = "Price";
-
-const newPriceDivEl = document.createElement("div");
-newPriceDivEl.className = "sectioned-label";
-newPriceDivEl.innerHTML = "<h3>Price</h3>";
 newPriceDivEl.append(addPriceInputEl);
-
+// add price }
 
 addNewExpenseFormEl.append(
     newItemDivEL,
@@ -320,28 +223,47 @@ addNewItemButtonEl = document.createElement("button");
 addNewItemButtonEl.innerText = "Add me!";
 addNewItemButtonEl.className = "add-new-item-button";
 
-// addNewItemButtonEl.addEventListener("submit", (event) => {
-//     // event.preventDefault()
-
-//     console.log("inside the addEventListener Button: ");
-//     // Access the forms' inputs and their values    
-  
-//     // formEl.reset()
-//   });
-
 addNewExpenseFormEl.append(addNewItemButtonEl);
-
 centeringSectionEl.append(formDesciptionH3El);
-
 centeringSectionEl.append(addNewFormContainerEl);
 
+// END of the ADD NEW ITEM from 
 }
 
 renderMainContainer()
 
+// TO DO LATER // GETS AN UNDEFINED VALUE AS RESPONSE
+function renderSearchedByName () {
+    console.log("inside renderSearchedByName");
+
+    const searchByNameFormElTargeted = document.querySelector("#filter-by-name");
+
+    searchByNameFormElTargeted.addEventListener("submit", () => {
+        console.log("state inside EVENT: ", state.expense[1].item);
+
+        // fetch("http://localhost:3000/expenses")
+        // .then((res) => res.json())
+        // .then((expensesNames) => {
+        //     console.log("expensesNames:", expensesNames.item)
+        // })  
+});
+   
+}
+
+renderSearchedByName()
+
+
+// function main () { 
+    // TO ADD THE LAYOUT AT A LATER POINT 
+    // FOR
+    // <main class="container center">
+
+// }
+
+// main ()
+
 
 const filtersSectionAsideEl = document.querySelector(".filters-section");
-
 
 function renderFilteredResults () { 
     
@@ -363,6 +285,15 @@ function renderFilteredResults () {
     dropdownselectEl.id = "filter-by-category";
     formFilteringEl.append( multipleFiltersEl ,dropdownselectEl);
 
+    dropdownselectEl.addEventListener("change", () => { 
+        const expensesList = document.querySelector(".expenses-list");        
+        console.log("expensesList:" ,expensesList)
+
+        console.log("state: ", state); 
+        expensesList.innerHTML =""; 
+
+    });
+
     const dropdowndefaultOptionEl = document.createElement("option");
     const dropdownAZOptionEl = document.createElement("option");
     dropdowndefaultOptionEl.value = ""; // to be replaced with the category 
@@ -376,11 +307,13 @@ function renderFilteredResults () {
 
     const dropdownAscendingPrice = document.createElement ("option");
     dropdownAscendingPrice.value = " "; // 
-    dropdownAscendingPrice.innerText = "Ascending";
+    dropdownAscendingPrice.innerText = "Lower Price";
+
+
 
     const dropdownDescendingPrice = document.createElement("option");
     dropdownDescendingPrice.value = " ";// 
-    dropdownDescendingPrice.innerText = "Descending";
+    dropdownDescendingPrice.innerText = "Higher Price";
 
     dropdownselectEl.append(
         dropdowndefaultOptionEl,
@@ -427,38 +360,3 @@ function renderFilteredResults () {
 }
 
 renderFilteredResults ()
-
-
-
-
-
-function userAddNewExpense (addNewExpenseFormEl) { 
-
-    // console.log(" inside addNewExpenseFormEl: ", addNewExpenseFormEl)
-// form name
-// addNewExpenseFormEl
-    
-
-    fetch("http://localhost:3000/expenses")
-    .then((res) => res.json())
-    .then((data) => {
-        
-        console.log("inside fetch data req:", data);
-        
-    
-    
-    });
-
-}
-
-userAddNewExpense()
-
-
-// function main () { 
-    // TO ADD THE LAYOUT AT A LATER POINT 
-    // FOR
-    // <main class="container center">
-
-// }
-
-// main ()
