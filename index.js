@@ -68,6 +68,7 @@ function displayUserNewAddition () {
 
 
 }
+displayUserNewAddition()
 
 // displayUserNewAddition()
 
@@ -164,9 +165,9 @@ addNewExpenseFormEl.addEventListener("submit", (event) => {
     // function renderUser
 
 
-  });
-  // formEl.reset()
-  displayUserNewAddition()
+addNewExpenseFormEl.reset()
+});
+
 })
 
 

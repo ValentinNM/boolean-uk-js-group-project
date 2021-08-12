@@ -38,82 +38,94 @@
       "id": 4
     },
     {
-      "item": "Juice",
-      "category": "Beverages",
-      "price": 2.49,
+      "item": "coffe",
+      "category": "food",
+      "price": 123,
       "id": 5
     },
     {
-      "item": "carrot",
-      "category": "groceries",
-      "price": 22,
+      "item": "coffe",
+      "category": "food",
+      "price": 123,
       "id": 6
     },
     {
-      "item": "oil change",
-      "category": "car maintanance",
-      "price": 60,
+      "item": "coffe",
+      "category": "food",
+      "price": 123,
       "id": 7
     },
     {
-      "item": "dinner",
-      "category": "family",
-      "price": 268,
+      "item": "coffee",
+      "category": "groceries",
+      "price": 22,
       "id": 8
     },
     {
-      "item": "oatmeal",
-      "category": "food",
-      "price": 12,
+      "item": "coffee",
+      "category": "groceries",
+      "price": 223,
       "id": 9
     },
     {
-      "item": "test ",
-      "category": "test",
-      "price": 1,
+      "item": "coffee",
+      "category": "groceries",
+      "price": 224,
       "id": 10
     },
     {
-      "item": "test 2",
-      "category": "test 2",
-      "price": 123,
+      "item": "asd",
+      "category": " egg",
+      "price": 1,
       "id": 11
     },
     {
-      "item": "test 3",
-      "category": "test 3",
-      "price": 123,
+      "item": "aqq",
+      "category": "qee",
+      "price": 12,
       "id": 12
     },
     {
-      "item": "test4",
-      "category": " test 4",
-      "price": 12,
+      "item": "coffee",
+      "category": "groceries",
+      "price": 1,
       "id": 13
     },
     {
-      "item": "a",
-      "category": " a",
+      "item": "coffee",
+      "category": "groceries",
       "price": 1,
       "id": 14
     },
     {
-      "item": "b",
-      "category": " b",
-      "price": 2,
+      "item": "milk",
+      "category": "groceries",
+      "price": 1,
       "id": 15
     },
     {
-      "item": "wqe",
-      "category": " eqwe",
-      "price": 123,
+      "item": "test name",
+      "category": "test category",
+      "price": 0,
       "id": 16
     },
     {
-      "item": "dsfds",
-      "category": " sdfds",
-      "price": 424,
+      "item": "test 1",
+      "category": "test 1",
+      "price": 2,
       "id": 17
+    },
+    {
+      "item": "test 2",
+      "category": "test 2",
+      "price": 2,
+      "id": 18
+    },
+    {
+      "item": "test 3",
+      "category": "test 3 ",
+      "price": 125,
+      "id": 19
     }
   ]
 }
