@@ -25,11 +25,12 @@ searchFieldInputEl.placeholder = "Please search by the item name: ";
 searchFieldInputEl.id = "user-item-input";
 searchFieldInputEl.name = "user-item-input";
 searchFieldInputEl.type = "text";
-// searchFieldInputEl.value = " ";
+searchFieldInputEl.value = "";
 topSearchBarFormEl.append(searchFieldInputEl);
 
 const searchButtonEl = document.createElement("button");
 searchButtonEl.className = "search-button";
+searchButtonEl.type = "submit";
 searchButtonEl.innerText = "Quick look up";
 topSearchBarFormEl.append(searchButtonEl);
 
@@ -59,10 +60,10 @@ sectionListEl.append(expensesListUlEl);
     fetch("http://localhost:3000/expenses")
     .then((res) => res.json())
     .then((allExpenses) => {
-        console.log("inside all expenses data: ", allExpenses);        
+        // console.log("inside all expenses data: ", allExpenses);        
         // console.log("this has to display last after the post methos")
          
-        state.expense = allExpenses; 
+        state.expense = [...allExpenses]; 
 
         for (let i = 0; i < allExpenses.length; i++) {
             const userExpense = allExpenses[i];
@@ -105,7 +106,8 @@ centeringSectionEl.append(sectionListEl);
 const totalPriceDivEl = document.createElement("div")
 totalPriceDivEl.innerText = "Total";
 const totalPriceDisplayed = document.createElement("h3");
-totalPriceDisplayed.innerText = "£267.22";
+totalPriceDisplayed.className = "priceAmount";
+// totalPriceDisplayed.innerText = "£267.22";
 
 totalPriceDivEl.append(totalPriceDisplayed);
 totalSectionEl.append(totalPriceDivEl)  
@@ -114,7 +116,8 @@ const totalNoCounterEl = document.createElement("div");
 totalNoCounterEl.innerText = "Counter";
 
 totalNoCounterDigitEl = document.createElement("h3");
-totalNoCounterDigitEl.innerText = "122";
+totalNoCounterDigitEl.className = "counter-quantity";
+// totalNoCounterDigitEl.innerText = "122";
 totalNoCounterEl.append(totalNoCounterDigitEl);
 
 totalSectionEl.append(totalNoCounterEl)
@@ -135,37 +138,38 @@ addNewExpenseFormEl.autocomplete = "off";
 
 addNewExpenseFormEl.addEventListener("submit", (event) => {
     event.preventDefault()
-    // console.log("Add me! button");
-
+    console.log("Add me! button");
+    
     const addedItem = addItemInputEl.value; 
     const addedCategory = addCategoryInputEl.value;
     const addedPrice = parseInt(addPriceInputEl.value);
-
-    // console.log("new user added expense :", addedItem, addedCategory, addedPrice);
-
-
+    
     const productToCreate = {
         item: addedItem,
         category: addedCategory,
         price: addedPrice
-      };
-      
-      const fetchOptions = {
+    };
+    
+    const fetchOptions = {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(productToCreate)
-      };
-
+    };
+    
     fetch("http://localhost:3000/expenses", fetchOptions)
-        .then((res) => res.json())
-        .then((newProduct) => {
-    // console.log("new product Inside POST Fetch: ", newProduct);
+    .then((res) => res.json())
+    .then((newProduct) => {
+        console.log("new product Inside POST Fetch: ", newProduct);
+        
 
-addNewExpenseFormEl.reset()
-});
+        // const testing = userAddNewExpense ()
 
+        addNewExpenseFormEl.reset()
+    });
+    // return testing;
+    // return userAddNewExpense();
 })
 
 
@@ -234,23 +238,86 @@ renderMainContainer()
 
 // TO DO LATER // GETS AN UNDEFINED VALUE AS RESPONSE
 function renderSearchedByName () {
-    console.log("inside renderSearchedByName");
+
+    
+    // console.log("inside renderSearchedByName");
 
     const searchByNameFormElTargeted = document.querySelector("#filter-by-name");
+    
+    const expensesList = document.querySelector(".expenses-list");        
+    
+    searchByNameFormElTargeted.addEventListener("submit", (event) => {
+        event.preventDefault();
+        // console.log("event BUTTON: ", state.expense[0]);
+        const itemSearchInput = document.querySelector("#user-item-input");
+        console.log("itemSearchInput: ", itemSearchInput.value);
+        const test = itemSearchInput.value;
+        
+        const filteredExpenses = state.expense.filter(
+            (expense) => expense.item === itemSearchInput.value
+            );        
+            console.log("filteredExpenses: ", filteredExpenses)
+            
+            expensesList.innerHTML ="";
+        for (let i = 0; i < filteredExpenses.length; i++) { 
+            const selectedExpenseByName = filteredExpenses[i]
+            console.log("inside FOR LOOP");
+            console.log("itemSearchInput.value: ", itemSearchInput.value)
+            console.log( "selectedExpenseByName.item:", selectedExpenseByName.item)
 
-    searchByNameFormElTargeted.addEventListener("submit", () => {
-        console.log("state inside EVENT: ", state.expense[1].item);
+        
+            // only gives the value for one ITEM Name
+            if (test === selectedExpenseByName.item) {
+                console.log('selectedExpenseByName :',selectedExpenseByName)
+                
 
-        // fetch("http://localhost:3000/expenses")
-        // .then((res) => res.json())
-        // .then((expensesNames) => {
-        //     console.log("expensesNames:", expensesNames.item)
-        // })  
-});
-   
+            const addedItemNameLiEl = document.createElement("li");
+            addedItemNameLiEl.className = "expense-item";
+            addedItemNameLiEl.innerText = selectedExpenseByName.item;
+
+            const addedItemCategoryLiEl = document.createElement("li");
+            addedItemCategoryLiEl.className = "expense-category";
+            addedItemCategoryLiEl.innerText = selectedExpenseByName.category;
+
+            const addedItemPriceLiEl = document.createElement("li");
+            addedItemPriceLiEl.className = "expense-price";
+            addedItemPriceLiEl.innerText = selectedExpenseByName.price;
+            
+            expensesList.append (
+                addedItemNameLiEl,
+                addedItemCategoryLiEl,
+                addedItemPriceLiEl );
+        }
+
+    }
+    return expensesList;
+
+    });
 }
 
 renderSearchedByName()
+
+
+// function renderTotalPriceAndQuantity () { 
+
+//     const addedItemPriceLiEl = document.querySelector(".expense-price");
+//     const totalPriceDisplayed = document.querySelector(".priceAmount");
+    
+//     let listTotalAmount = 0;
+
+//     for (let i = 0; i < state.expense.length; i++ ){ 
+//         const individualPrice = state.expense[i].price;
+//          listTotalAmount += individualPrice;
+//          console.log("listTotalAmount:", listTotalAmount);
+        
+//          state.price = listTotalAmount;
+
+//          totalPriceDisplayed.innerText = `$ {listTotalAmount}`;
+
+//     }
+
+// }
+// renderTotalPriceAndQuantity ()
 
 
 // function main () { 

@@ -32,165 +32,165 @@
       "mandatory": false
     },
     {
-      "item": "onion",
-      "category": "food",
-      "price": 22,
+      "item": "banana",
+      "category": "grocery",
+      "price": 1,
       "id": 4
     },
     {
-      "item": "coffe",
+      "item": "pastry",
       "category": "food",
-      "price": 123,
+      "price": 12,
       "id": 5
     },
     {
-      "item": "coffe",
-      "category": "food",
-      "price": 123,
+      "item": "banana",
+      "category": "grocery",
+      "price": 11,
       "id": 6
     },
     {
-      "item": "coffe",
-      "category": "food",
-      "price": 123,
+      "item": "",
+      "category": " ",
+      "price": null,
       "id": 7
     },
     {
-      "item": "coffee",
-      "category": "groceries",
-      "price": 22,
+      "item": "",
+      "category": " ",
+      "price": null,
       "id": 8
     },
     {
-      "item": "coffee",
-      "category": "groceries",
-      "price": 223,
+      "item": "test",
+      "category": "test",
+      "price": 12,
       "id": 9
     },
     {
-      "item": "coffee",
-      "category": "groceries",
-      "price": 224,
+      "item": "add",
+      "category": " add",
+      "price": 12,
       "id": 10
     },
     {
-      "item": "asd",
-      "category": " egg",
-      "price": 1,
+      "item": "steven",
+      "category": "instructor",
+      "price": 100000,
       "id": 11
     },
     {
-      "item": "aqq",
-      "category": "qee",
-      "price": 12,
+      "item": "asas",
+      "category": " asas",
+      "price": 11,
       "id": 12
     },
     {
-      "item": "coffee",
-      "category": "groceries",
-      "price": 1,
+      "item": "apple",
+      "category": "grocery",
+      "price": 10,
       "id": 13
     },
     {
-      "item": "coffee",
-      "category": "groceries",
+      "item": "new",
+      "category": "another",
       "price": 1,
       "id": 14
     },
     {
-      "item": "milk",
-      "category": "groceries",
+      "item": "add",
+      "category": "add",
       "price": 1,
       "id": 15
     },
     {
-      "item": "test name",
-      "category": "test category",
-      "price": 0,
+      "item": "asa",
+      "category": " asas",
+      "price": 111,
       "id": 16
     },
     {
-      "item": "test 1",
-      "category": "test 1",
-      "price": 2,
+      "item": "new",
+      "category": "new",
+      "price": null,
       "id": 17
     },
     {
-      "item": "test 2",
-      "category": "test 2",
-      "price": 2,
+      "item": "asa",
+      "category": "asa",
+      "price": 111,
       "id": 18
     },
     {
-      "item": "test 3",
-      "category": "test 3 ",
-      "price": 125,
+      "item": "name",
+      "category": "category",
+      "price": 11,
       "id": 19
     },
     {
-      "item": "",
-      "category": " ",
-      "price": null,
+      "item": "asd",
+      "category": " ddd",
+      "price": 1,
       "id": 20
     },
     {
-      "item": "",
-      "category": " ",
-      "price": null,
+      "item": "aa",
+      "category": " aaaa",
+      "price": 111,
       "id": 21
     },
     {
-      "item": "dfdscsdaf",
-      "category": " ",
+      "item": "",
+      "category": "",
       "price": null,
       "id": 22
     },
     {
-      "item": "",
-      "category": " ",
+      "item": "aa",
+      "category": " aa",
       "price": null,
       "id": 23
     },
     {
-      "item": "test again",
-      "category": "test againb",
-      "price": 123,
+      "item": "aaa",
+      "category": "a",
+      "price": 12,
       "id": 24
     },
     {
-      "item": "new name",
-      "category": "new category ",
-      "price": 123,
+      "item": "1234",
+      "category": " 11",
+      "price": 11,
       "id": 25
     },
     {
-      "item": "sadas",
-      "category": "asdsa",
-      "price": 11,
+      "item": "",
+      "category": " ",
+      "price": null,
       "id": 26
     },
     {
-      "item": "asda",
-      "category": "asdsa",
-      "price": 1111,
+      "item": "",
+      "category": "",
+      "price": null,
       "id": 27
     },
     {
-      "item": "new one",
-      "category": "new one",
+      "item": "",
+      "category": "",
       "price": null,
       "id": 28
     },
     {
-      "item": "test 2 ",
-      "category": "test 2",
-      "price": 11,
+      "item": "",
+      "category": "",
+      "price": null,
       "id": 29
     },
     {
-      "item": "ben",
-      "category": "bvn",
-      "price": 23,
+      "item": "",
+      "category": "",
+      "price": null,
       "id": 30
     },
     {
@@ -200,68 +200,68 @@
       "id": 31
     },
     {
-      "item": "da",
-      "category": "asa",
-      "price": 123,
+      "item": "",
+      "category": "",
+      "price": null,
       "id": 32
-    },
-    {
-      "item": "v",
-      "category": "hj",
-      "price": 212,
-      "id": 33
-    },
-    {
-      "item": "done",
-      "category": "done",
-      "price": 1234,
-      "id": 34
-    },
-    {
-      "item": "very last added",
-      "category": "again",
-      "price": 12,
-      "id": 35
-    },
-    {
-      "item": "boom",
-      "category": " boom",
-      "price": 1,
-      "id": 36
-    },
-    {
-      "item": "abcd",
-      "category": "def",
-      "price": 123,
-      "id": 37
     },
     {
       "item": "",
       "category": "",
       "price": null,
-      "id": 38
+      "id": 33
     },
     {
       "item": "",
       "category": "",
+      "price": null,
+      "id": 34
+    },
+    {
+      "item": "",
+      "category": "",
+      "price": null,
+      "id": 35
+    },
+    {
+      "item": "",
+      "category": "",
+      "price": null,
+      "id": 36
+    },
+    {
+      "item": "",
+      "category": "",
+      "price": null,
+      "id": 37
+    },
+    {
+      "item": "asa",
+      "category": " sasas",
+      "price": 111,
+      "id": 38
+    },
+    {
+      "item": "",
+      "category": " ",
       "price": null,
       "id": 39
     },
     {
       "item": "",
-      "category": "",
+      "category": " ",
       "price": null,
       "id": 40
     },
     {
-      "item": "works ",
-      "category": "work s",
-      "price": 123,
+      "item": "",
+      "category": " ",
+      "price": null,
       "id": 41
     },
     {
       "item": "",
-      "category": " ",
+      "category": "",
       "price": null,
       "id": 42
     },
@@ -278,22 +278,16 @@
       "id": 44
     },
     {
-      "item": "",
-      "category": "",
-      "price": null,
+      "item": "dsa",
+      "category": " sadas",
+      "price": 111,
       "id": 45
     },
     {
-      "item": "asd",
-      "category": " asda",
-      "price": 123,
+      "item": "ben",
+      "category": "ben",
+      "price": 10,
       "id": 46
-    },
-    {
-      "item": "asa",
-      "category": " asas",
-      "price": 123,
-      "id": 47
     }
   ]
 }

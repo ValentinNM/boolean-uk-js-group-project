@@ -11,10 +11,15 @@
     width: 300px;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 50px;
+    margin-bottom: 40px;
     text-align: center;
     position: relative;
     height: 6em;
+    /* margin: 0px 15px 40px 15px; */
+    /* border: 2px solid #4EB2B6; */
+    /* border-radius: 15px; */
+    /* padding-bottom: 10px; */
+    /* align-self: center; */
   }
   .price-slider svg,
   .price-slider input[type=range] {
